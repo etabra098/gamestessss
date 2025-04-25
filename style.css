@@ -1,0 +1,136 @@
+/* ===== GENERAL STYLING ===== */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.game-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+}
+
+h1 {
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+#level {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #5f27cd;
+}
+
+/* ===== GAME BOARD & CARDS ===== */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card, .drop-zone {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.card {
+    background: #ffd166;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card.dragging {
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+.drop-zone {
+    background: #e0e0e0;
+    border: 2px dashed #999;
+}
+
+/* ===== SHAPES, ANIMALS, ETC. ===== */
+.item {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Colored Items */
+.circle { background-color: #ff6b6b; border-radius: 50%; }
+.square { background-color: #48dbfb; }
+.triangle { 
+    width: 0; height: 0; 
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid #1dd1a1;
+}
+.star { color: #feca57; font-size: 50px; }
+
+/* Gray Items (Drop Zones) */
+.gray.circle { background-color: #aaa; border-radius: 50%; }
+.gray.square { background-color: #aaa; }
+.gray.triangle { border-bottom-color: #aaa; }
+.gray.star { color: #aaa; }
+
+/* Animals (Emoji-based) */
+.dog::before, .gray.dog::before { content: "🐶"; font-size: 40px; }
+.cat::before, .gray.cat::before { content: "🐱"; font-size: 40px; }
+
+/* Vehicles (Emoji-based) */
+.car::before, .gray.car::before { content: "🚗"; font-size: 40px; }
+
+/* ===== CONGRATS POPUP ===== */
+#congrats-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#next-level-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#next-level-btn:hover {
+    background: #45a049;
+}
